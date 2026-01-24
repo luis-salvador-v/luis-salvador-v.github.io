@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Gonzalez - Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <header>
+        <div class="container">
+            <h1 id="owner-name"></h1>
+            <p id="main-specialty"></p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="about" class="container">
+            <h2>About Me</h2>
+            <p id="about-description"></p>
+        </section>
+
+        <section id="projects">
+            <div class="container">
+                <h2>Projects</h2>
+                <div id="projects-container"></div>
+            </div>
+        </section>
+
+        <section id="experience">
+            <div class="container">
+                <h2>Experience</h2>
+                <div id="experience-container"></div>
+            </div>
+        </section>
+
+        <section id="contact" class="container">
+            <h2>Contact</h2>
+            <div id="contact-container"></div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2026 <span id="footer-name">Luis Gonzalez</span>. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../js/data.js"></script>
+    <script src="../js/app.js"></script>
+    <script>
+        // Small script to set footer name, as app.js doesn't do it.
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('footer-name').textContent = portfolio.name;
+        });
+    </script>
+</body>
+</html>
