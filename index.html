@@ -352,6 +352,29 @@
         line-height: 1.45;
       }
 
+      .figure-placeholder.has-image {
+        grid-template-rows: minmax(13rem, 1fr) auto;
+        align-content: stretch;
+        padding: 0;
+        overflow: clip;
+        background-image: none;
+      }
+
+      .figure-placeholder.has-image img {
+        width: 100%;
+        height: 100%;
+        min-height: 13rem;
+        max-height: 18rem;
+        display: block;
+        padding: var(--space-sm);
+        background: var(--color-paper);
+        object-fit: contain;
+      }
+
+      .figure-placeholder.has-image figcaption {
+        max-width: none;
+      }
+
       .project-slot:nth-child(2) .figure-placeholder figcaption {
         background: var(--color-paper-3);
         color: var(--color-ink-2);
@@ -663,17 +686,18 @@
 
           <a class="project-slot" href="work/engineering.html" aria-labelledby="engineering-card-title">
             <div class="slot-head">
-              <h3 id="engineering-card-title">Engineering work</h3>
-              <span class="slot-status">Open draft ↗</span>
+              <h3 id="engineering-card-title">Line-following car</h3>
+              <span class="slot-status">2026 ↗</span>
             </div>
-            <figure class="figure-placeholder">
-              <figcaption>Replace with prototype, CAD view, circuit, analysis, or final artifact.</figcaption>
+            <figure class="figure-placeholder has-image">
+              <img src="autonomous-line-following-car.jpg.jpg" alt="Assembled autonomous line-following car with exposed electronics and yellow wheels" width="118" height="160" loading="lazy" decoding="async">
+              <figcaption>Arduino prototype · CAD, circuit assembly, and embedded control.</figcaption>
             </figure>
-            <ul class="content-fields" aria-label="Fields needed for engineering work">
-              <li>Problem</li>
-              <li>Constraints</li>
-              <li>Build</li>
-              <li>Validation</li>
+            <ul class="content-fields" aria-label="Line-following car project areas">
+              <li>Arduino</li>
+              <li>CAD modeling</li>
+              <li>Circuit assembly</li>
+              <li>Sensor feedback</li>
             </ul>
           </a>
 

@@ -1,6 +1,13 @@
 [
   {
     "date": "2026-08-07",
+    "macrostructure": "Long Document — media dossier",
+    "theme": "Midnight",
+    "enrichment": "user-supplied project imagery",
+    "brief": "Autonomous line-following car · Arduino, CAD, circuits, and embedded control"
+  },
+  {
+    "date": "2026-08-07",
     "macrostructure": "Long Document",
     "theme": "Midnight",
     "enrichment": "none",
