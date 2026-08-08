@@ -1,73 +1,751 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Luis Gonzalez - Portfolio</title>
-    <link rel="stylesheet" href="css/style.css">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="description" content="Portfolio specification for Luis Salvador Valdivia, a biomedical engineering student at UC Merced graduating in 2028.">
+    <title>Luis Salvador Valdivia — Biomedical Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&amp;family=IBM+Plex+Sans:wght@400;600&amp;family=Tomorrow:wght@600;700&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="tokens.css">
+    <style>
+      /* Hallmark · macrostructure: Portfolio Grid · tone: technical + austere · anchor hue: deep blue */
+      /* Hallmark · genre: atmospheric · theme: Midnight · enrichment: none · nav: N9 · footer: Ft5 */
+      /* Hallmark · contrast: pass (40–41) · static gates: pass · visual: pending (34, 44) */
+      /* Hallmark · pre-emit critique: P5 H5 E3 S4 R5 V5 */
 
-    <header>
-        <div class="container">
-            <h1 id="owner-name"></h1>
-            <p id="main-specialty"></p>
-        </div>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+
+      html {
+        overflow-x: clip;
+        scroll-behavior: smooth;
+      }
+
+      body {
+        min-width: 20rem;
+        margin: 0;
+        overflow-x: clip;
+        background: var(--color-paper);
+        color: var(--color-ink);
+        font-family: var(--font-body);
+        font-size: var(--text-base);
+        font-weight: 400;
+        line-height: 1.6;
+        text-rendering: optimizeLegibility;
+      }
+
+      ::selection {
+        background: var(--color-selection);
+        color: var(--color-ink);
+      }
+
+      a {
+        color: inherit;
+        text-decoration: none;
+      }
+
+      a:focus-visible {
+        outline: var(--rule-strong) solid var(--color-focus);
+        outline-offset: var(--space-2xs);
+      }
+
+      h1,
+      h2,
+      h3,
+      p,
+      figure,
+      dl,
+      dd {
+        margin: 0;
+      }
+
+      h1,
+      h2,
+      h3 {
+        min-width: 0;
+        overflow-wrap: anywhere;
+        font-family: var(--font-display);
+        font-style: normal;
+        line-height: 1.04;
+      }
+
+      h1 {
+        max-width: 14ch;
+        font-size: var(--text-display);
+        font-weight: 700;
+        letter-spacing: -0.045em;
+      }
+
+      h2 {
+        max-width: 18ch;
+        font-size: clamp(var(--text-2xl), 5vw, var(--text-4xl));
+        font-weight: 700;
+        letter-spacing: -0.035em;
+      }
+
+      h3 {
+        font-size: clamp(var(--text-xl), 3.5vw, var(--text-2xl));
+        font-weight: 600;
+        letter-spacing: -0.025em;
+      }
+
+      .shell {
+        width: min(100%, var(--page-max));
+        margin-inline: auto;
+        padding-inline-start: var(--page-gutter-start);
+        padding-inline-end: var(--page-gutter-end);
+      }
+
+      .skip-link {
+        position: fixed;
+        inset-block-start: var(--space-sm);
+        inset-inline-start: var(--page-gutter-start);
+        z-index: var(--z-sticky);
+        padding: var(--space-sm) var(--space-md);
+        transform: translateY(calc(-100% - var(--space-xl)));
+        background: var(--color-accent);
+        color: var(--color-accent-ink);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .skip-link:focus {
+        transform: translateY(0);
+      }
+
+      .skip-link:focus-visible {
+        outline-color: var(--color-accent-ink);
+        outline-offset: 0;
+        box-shadow: 0 0 0 var(--space-2xs) var(--color-focus);
+      }
+
+      .skip-link:hover {
+        background: var(--color-accent-soft);
+      }
+
+      .skip-link:active {
+        transform: translateY(1px);
+      }
+
+      .nav-edge {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        min-height: 5.5rem;
+        gap: var(--space-lg);
+      }
+
+      .wordmark {
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        font-family: var(--font-outlier);
+        font-size: var(--text-sm);
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        white-space: nowrap;
+      }
+
+      .wordmark::before {
+        content: "";
+        width: var(--space-xs);
+        aspect-ratio: 1;
+        margin-inline-end: var(--space-sm);
+        background: var(--color-accent);
+      }
+
+      .wordmark:active {
+        transform: translateY(1px);
+      }
+
+      .nav-action {
+        min-height: 2.75rem;
+        display: inline-flex;
+        align-items: center;
+        border-block-end: var(--rule-hair) solid var(--color-rule);
+        color: var(--color-ink-2);
+        font-size: var(--text-sm);
+        font-weight: 600;
+        transition: color var(--dur-short) var(--ease-out), transform var(--dur-micro) var(--ease-out);
+        white-space: nowrap;
+      }
+
+      .nav-action:hover {
+        color: var(--color-accent-soft);
+        transform: translateY(-1px);
+      }
+
+      .nav-action:active {
+        transform: translateY(1px);
+      }
+
+      .wordmark[aria-disabled="true"],
+      .nav-action[aria-disabled="true"],
+      .skip-link[aria-disabled="true"],
+      .project-slot[aria-disabled="true"],
+      .footer-link[aria-disabled="true"] {
+        opacity: 0.55;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .intro {
+        display: grid;
+        gap: var(--space-2xl);
+        padding-block: var(--space-2xl) var(--space-4xl);
+      }
+
+      .identity {
+        display: grid;
+        gap: var(--space-lg);
+      }
+
+      .status-line {
+        max-width: 100%;
+        color: var(--color-accent-soft);
+        font-family: var(--font-outlier);
+        font-size: var(--text-xs);
+        letter-spacing: 0.08em;
+        line-height: 1.5;
+        text-transform: uppercase;
+      }
+
+      .intro-copy {
+        display: grid;
+        align-content: end;
+        gap: var(--space-xl);
+      }
+
+      .lede {
+        max-width: 48ch;
+        color: var(--color-ink-2);
+        font-size: clamp(var(--text-md), 2.3vw, var(--text-lg));
+        line-height: 1.45;
+      }
+
+      .content-state {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-sm);
+        padding-block-start: var(--space-lg);
+        border-block-start: var(--rule-hair) solid var(--color-rule);
+      }
+
+      .content-state dt {
+        color: var(--color-muted);
+        font-size: var(--text-sm);
+      }
+
+      .content-state dd {
+        color: var(--color-ink);
+        font-size: var(--text-sm);
+        font-weight: 600;
+      }
+
+      .section {
+        padding-block: var(--space-3xl);
+      }
+
+      .head-hang {
+        display: grid;
+        gap: var(--space-lg);
+        padding-block-end: var(--space-2xl);
+      }
+
+      .section-copy {
+        max-width: 48ch;
+        color: var(--color-muted);
+      }
+
+      .project-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: var(--space-md);
+      }
+
+      .project-slot {
+        min-width: 0;
+        display: grid;
+        align-content: start;
+        gap: var(--space-xl);
+        padding: var(--space-lg);
+        background: var(--color-paper-2);
+        color: var(--color-ink);
+        border-radius: var(--radius-card);
+        cursor: pointer;
+        transition: background-color var(--dur-short) var(--ease-out);
+      }
+
+      .project-slot:nth-child(2) {
+        background: var(--color-paper-3);
+      }
+
+      .project-slot:hover {
+        background: var(--color-paper-3);
+      }
+
+      .project-slot:nth-child(2):hover {
+        background: var(--color-paper-4);
+      }
+
+      .project-slot:active {
+        transform: translateY(1px);
+      }
+
+      .project-slot:focus-visible {
+        outline: var(--rule-strong) solid var(--color-focus);
+        outline-offset: var(--space-2xs);
+      }
+
+      .slot-head {
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: var(--space-lg);
+      }
+
+      .slot-status {
+        flex: 0 0 auto;
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-xs);
+        color: var(--color-muted);
+        font-size: var(--text-xs);
+        letter-spacing: 0.06em;
+        line-height: 1.3;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .slot-status::before {
+        content: "";
+        width: var(--space-xs);
+        aspect-ratio: 1;
+        border: var(--rule-hair) solid var(--color-accent);
+        border-radius: var(--radius-chip);
+      }
+
+      .figure-placeholder {
+        min-height: 13rem;
+        display: grid;
+        align-content: end;
+        padding: var(--space-md);
+        background-color: var(--color-paper);
+        background-image:
+          linear-gradient(var(--color-rule-soft) var(--rule-hair), var(--color-transparent) var(--rule-hair)),
+          linear-gradient(90deg, var(--color-rule-soft) var(--rule-hair), var(--color-transparent) var(--rule-hair));
+        background-size: var(--space-xl) var(--space-xl);
+        border-radius: var(--radius-card);
+      }
+
+      .figure-placeholder figcaption {
+        max-width: 45ch;
+        padding: var(--space-sm);
+        background: var(--color-paper-2);
+        color: var(--color-neutral);
+        font-size: var(--text-sm);
+        line-height: 1.45;
+      }
+
+      .project-slot:nth-child(2) .figure-placeholder figcaption {
+        background: var(--color-paper-3);
+        color: var(--color-ink-2);
+      }
+
+      .content-fields {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: var(--space-sm) var(--space-lg);
+        padding: 0;
+        list-style: none;
+        color: var(--color-ink-2);
+        font-size: var(--text-sm);
+      }
+
+      .content-fields li {
+        display: flex;
+        align-items: baseline;
+        gap: var(--space-sm);
+      }
+
+      .content-fields li::before {
+        content: "";
+        flex: 0 0 auto;
+        width: var(--space-xs);
+        height: var(--rule-hair);
+        background: var(--color-accent);
+      }
+
+      .record-layout {
+        display: grid;
+        gap: var(--space-2xl);
+      }
+
+      .spec-sheet {
+        display: grid;
+        margin: 0;
+      }
+
+      .spec-row {
+        display: grid;
+        grid-template-columns: minmax(0, 0.75fr) minmax(0, 1fr);
+        gap: var(--space-sm) var(--space-lg);
+        padding-block: var(--space-lg);
+        border-block-start: var(--rule-hair) solid var(--color-rule);
+      }
+
+      .spec-row:last-child {
+        border-block-end: var(--rule-hair) solid var(--color-rule);
+      }
+
+      .spec-row dt {
+        color: var(--color-muted);
+        font-size: var(--text-sm);
+      }
+
+      .spec-row dd {
+        color: var(--color-ink);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .queue {
+        align-self: start;
+        display: grid;
+        gap: var(--space-xl);
+        padding: var(--space-xl);
+        background: var(--color-paper-2);
+        border-radius: var(--radius-card);
+      }
+
+      .queue h3 {
+        max-width: 12ch;
+      }
+
+      .queue-list {
+        display: grid;
+        gap: var(--space-md);
+        margin: 0;
+        padding: 0;
+        counter-reset: queue;
+        list-style: none;
+      }
+
+      .queue-list li {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: var(--space-sm);
+        color: var(--color-ink-2);
+        font-size: var(--text-sm);
+      }
+
+      .queue-list li::before {
+        counter-increment: queue;
+        content: counter(queue, decimal-leading-zero);
+        color: var(--color-accent-soft);
+        font-variant-numeric: tabular-nums;
+      }
+
+      .foot-stmt {
+        display: grid;
+        gap: var(--space-3xl);
+        padding-block: var(--space-4xl) var(--page-bottom);
+      }
+
+      .foot-stmt__line {
+        max-width: 17ch;
+        font-family: var(--font-display);
+        font-size: clamp(var(--text-2xl), 7vw, var(--text-4xl));
+        font-weight: 700;
+        font-style: normal;
+        line-height: 1.04;
+        letter-spacing: -0.035em;
+        overflow-wrap: anywhere;
+      }
+
+      .foot-stmt__line span {
+        color: var(--color-accent-soft);
+      }
+
+      .foot-stmt__meta {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: var(--space-sm);
+        padding-block-start: var(--space-lg);
+        border-block-start: var(--rule-hair) solid var(--color-rule);
+        color: var(--color-muted);
+        font-size: var(--text-sm);
+      }
+
+      .foot-stmt__contact {
+        display: flex;
+        flex-wrap: wrap;
+        gap: var(--space-sm);
+      }
+
+      .footer-link {
+        color: var(--color-ink-2);
+        font-weight: 600;
+        white-space: nowrap;
+      }
+
+      .footer-link:hover {
+        color: var(--color-accent-soft);
+      }
+
+      .footer-link:active {
+        transform: translateY(1px);
+      }
+
+      .record-band {
+        background: var(--color-paper-2);
+        color: var(--color-ink);
+      }
+
+      .record-band .queue {
+        background: var(--color-paper-3);
+        color: var(--color-ink);
+      }
+
+      @media (min-width: 40rem) {
+        .intro {
+          grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
+          align-items: end;
+          gap: var(--space-3xl);
+        }
+
+        .content-state {
+          grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
+        }
+
+        .project-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+        }
+
+        .project-slot:last-child {
+          grid-column: 1 / -1;
+          grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+          align-items: start;
+        }
+
+        .record-layout {
+          grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
+          align-items: start;
+        }
+
+        .foot-stmt__meta {
+          flex-direction: row;
+          align-items: baseline;
+          justify-content: space-between;
+        }
+      }
+
+      @media (min-width: 60rem) {
+        .head-hang {
+          grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+          align-items: end;
+        }
+
+        .intro {
+          min-height: 38rem;
+          padding-block-start: var(--space-3xl);
+        }
+
+        .project-grid {
+          grid-template-columns: repeat(12, minmax(0, 1fr));
+        }
+
+        .project-slot:first-child {
+          grid-column: span 7;
+        }
+
+        .project-slot:nth-child(2) {
+          grid-column: span 5;
+          margin-block-start: var(--space-2xl);
+        }
+
+        .project-slot:last-child {
+          grid-column: 3 / span 10;
+        }
+
+        .project-slot {
+          padding: var(--space-xl);
+        }
+
+        .figure-placeholder {
+          min-height: 20rem;
+        }
+      }
+
+      @media (hover: hover) and (pointer: fine) {
+        .wordmark:hover {
+          color: var(--color-accent-soft);
+        }
+      }
+
+      @media (pointer: coarse) {
+        .wordmark,
+        .nav-action {
+          min-height: 3rem;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        html {
+          scroll-behavior: auto;
+        }
+
+        *,
+        *::before,
+        *::after {
+          animation-duration: var(--dur-micro) !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: var(--dur-micro) !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="shell nav-edge" aria-label="Primary navigation">
+      <a class="wordmark" href="#top" aria-label="Luis Salvador Valdivia, back to top">LSV / 2028</a>
+      <a class="nav-action" href="https://www.linkedin.com/in/luissalvador12/" target="_blank" rel="noopener noreferrer" aria-label="Luis Salvador Valdivia on LinkedIn, opens in a new tab">LinkedIn ↗</a>
     </header>
 
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
+    <main id="main">
+      <section class="shell intro" id="top" aria-labelledby="page-title">
+        <div class="identity">
+          <p class="status-line">UC Merced · Biomedical Engineering · 2028</p>
+          <h1 id="page-title">Luis Salvador Valdivia</h1>
         </div>
-    </nav>
 
-    <main>
-        <section id="about" class="container">
-            <h2>About Me</h2>
-            <p id="about-description"></p>
-        </section>
+        <div class="intro-copy">
+          <p class="lede">Third-year biomedical engineering student, actively working in research. Project details, methods, and outcomes will be added as work is ready to publish.</p>
+          <dl class="content-state">
+            <dt>Portfolio state</dt>
+            <dd>Content in progress</dd>
+            <dt>Primary record</dt>
+            <dd>Research · engineering · practice</dd>
+          </dl>
+        </div>
+      </section>
 
-        <section id="projects">
-            <div class="container">
-                <h2>Projects</h2>
-                <div id="projects-container"></div>
+      <section class="shell section" id="work" aria-labelledby="work-title">
+        <header class="head-hang">
+          <h2 id="work-title">Research should show its evidence.</h2>
+          <p class="section-copy">Each entry will use one repeatable record: question, method, contribution, outcome. Empty fields stay visible until real content replaces them.</p>
+        </header>
+
+        <div class="project-grid">
+          <a class="project-slot" href="work/research.html" aria-labelledby="research-card-title">
+            <div class="slot-head">
+              <h3 id="research-card-title">Current research</h3>
+              <span class="slot-status">Open draft ↗</span>
             </div>
-        </section>
+            <figure class="figure-placeholder">
+              <figcaption>Replace with lab image, instrument output, plot, or research figure.</figcaption>
+            </figure>
+            <ul class="content-fields" aria-label="Fields needed for current research">
+              <li>Lab + PI</li>
+              <li>Research question</li>
+              <li>Methods</li>
+              <li>Contribution</li>
+              <li>Outcome</li>
+              <li>Source link</li>
+            </ul>
+          </a>
 
-        <section id="experience">
-            <div class="container">
-                <h2>Experience</h2>
-                <div id="experience-container"></div>
+          <a class="project-slot" href="work/engineering.html" aria-labelledby="engineering-card-title">
+            <div class="slot-head">
+              <h3 id="engineering-card-title">Engineering work</h3>
+              <span class="slot-status">Open draft ↗</span>
             </div>
-        </section>
+            <figure class="figure-placeholder">
+              <figcaption>Replace with prototype, CAD view, circuit, analysis, or final artifact.</figcaption>
+            </figure>
+            <ul class="content-fields" aria-label="Fields needed for engineering work">
+              <li>Problem</li>
+              <li>Constraints</li>
+              <li>Build</li>
+              <li>Validation</li>
+            </ul>
+          </a>
 
-        <section id="contact" class="container">
-            <h2>Contact</h2>
-            <div id="contact-container"></div>
-        </section>
+          <a class="project-slot" href="work/practice.html" aria-labelledby="practice-card-title">
+            <div class="slot-head">
+              <h3 id="practice-card-title">Technical practice</h3>
+              <span class="slot-status">Open draft ↗</span>
+            </div>
+            <ul class="content-fields" aria-label="Fields needed for technical practice">
+              <li>Course or context</li>
+              <li>Technical focus</li>
+              <li>Artifact</li>
+              <li>Takeaway</li>
+            </ul>
+          </a>
+        </div>
+      </section>
+
+      <section class="record-band" aria-labelledby="record-title">
+        <div class="shell section">
+          <header class="head-hang">
+            <h2 id="record-title">Academic record, without filler.</h2>
+            <p class="section-copy">Known facts stay concrete. Missing details remain queued instead of being invented.</p>
+          </header>
+
+          <div class="record-layout">
+            <dl class="spec-sheet">
+              <div class="spec-row">
+                <dt>Institution</dt>
+                <dd>University of California, Merced</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Program</dt>
+                <dd>Biomedical Engineering</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Academic level</dt>
+                <dd>Third year</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Expected graduation</dt>
+                <dd>2028</dd>
+              </div>
+              <div class="spec-row">
+                <dt>Research status</dt>
+                <dd>Active</dd>
+              </div>
+            </dl>
+
+            <aside class="queue" aria-labelledby="queue-title">
+              <h3 id="queue-title">Next content pass</h3>
+              <ol class="queue-list">
+                <li>Research lab, PI, and question</li>
+                <li>Methods and personal contribution</li>
+                <li>Project visuals and validation</li>
+                <li>Résumé, email, and project sources</li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </section>
     </main>
 
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 <span id="footer-name">Luis Gonzalez</span>. All Rights Reserved.</p>
-        </div>
+    <footer class="shell foot-stmt">
+      <p class="foot-stmt__line">Work in progress. <span>Evidence first.</span></p>
+      <div class="foot-stmt__meta">
+        <span>Luis Salvador Valdivia</span>
+        <span class="foot-stmt__contact">
+          <a class="footer-link" href="https://www.linkedin.com/in/luissalvador12/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
+          <span>Email pending · Expected graduation 2028</span>
+        </span>
+      </div>
     </footer>
-
-    <script src="js/data.js"></script>
-    <script src="js/app.js"></script>
-    <script>
-        // Small script to set footer name, as app.js doesn't do it.
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('footer-name').textContent = portfolio.name;
-        });
-    </script>
-</body>
+  </body>
 </html>
