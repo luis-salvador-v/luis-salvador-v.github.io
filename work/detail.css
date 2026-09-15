@@ -1,4 +1,4 @@
-/* Hallmark · macrostructure: Long Document · knobs: evidence contact sheet + contribution ledger · tone: technical + austere · anchor hue: deep blue */
+/* Hallmark · macrostructure: Long Document · knobs: evidence contact sheets + methods ledgers · tone: technical + austere · anchor hue: deep blue */
 /* Hallmark · genre: atmospheric · theme: Midnight · enrichment: user-supplied project evidence · nav: N5 · footer: Ft2 */
 /* Hallmark · contrast: pass (40–41) · slop: pass (42–49) · mobile static: pass (34, 49–57) · visual: pending (34, 44) */
 /* Hallmark · pre-emit critique: P5 H5 E5 S5 R5 V4 */
@@ -212,6 +212,18 @@ h2 {
   padding-block: var(--space-2xl) var(--space-4xl);
 }
 
+.research-article {
+  padding-block: var(--space-2xl) var(--space-4xl);
+}
+
+.research-copy {
+  padding-block: 0;
+}
+
+.research-copy--closing {
+  padding-block-start: var(--space-xl);
+}
+
 .prose section {
   display: grid;
   gap: var(--space-md);
@@ -290,6 +302,57 @@ h2 {
 
 .project-media--landscape img {
   max-width: 32rem;
+}
+
+.project-media--poster {
+  grid-column: 1 / -1;
+}
+
+.project-media--poster img {
+  max-width: 100%;
+  max-height: none;
+}
+
+.project-gallery--research {
+  grid-template-columns: minmax(0, 1fr);
+}
+
+.project-gallery--research .project-media {
+  grid-template-rows: auto auto;
+}
+
+.project-gallery--research .project-media img {
+  max-width: 50rem;
+  max-height: none;
+}
+
+.project-gallery--research figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-sm);
+}
+
+.project-media__open {
+  flex: 0 0 auto;
+  color: var(--color-accent);
+  font-family: var(--font-outlier);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  transition:
+    color var(--dur-short) var(--ease-out),
+    transform var(--dur-short) var(--ease-out);
+}
+
+.project-media__open:hover {
+  color: var(--color-accent-soft);
+}
+
+.project-media__open:active {
+  transform: translateY(1px);
 }
 
 .project-media figcaption {
@@ -377,6 +440,10 @@ h2 {
 
   .project-gallery {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .project-gallery--research {
+    grid-template-columns: minmax(0, 1fr);
   }
 }
 

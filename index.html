@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <meta name="description" content="Portfolio specification for Luis Salvador Valdivia, a biomedical engineering student at UC Merced graduating in 2028.">
+    <meta name="description" content="Biomedical engineering portfolio of Luis Salvador Valdivia, a UC Merced student graduating in 2028.">
     <title>Luis Salvador Valdivia — Biomedical Engineering</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,7 +13,7 @@
       /* Hallmark · macrostructure: Portfolio Grid · tone: technical + austere · anchor hue: deep blue */
       /* Hallmark · genre: atmospheric · theme: Midnight · enrichment: none · nav: N9 · footer: Ft5 */
       /* Hallmark · contrast: pass (40–41) · static gates: pass · visual: pending (34, 44) */
-      /* Hallmark · pre-emit critique: P5 H5 E3 S4 R5 V5 */
+      /* Hallmark · pre-emit critique: P5 H5 E4 S5 R5 V5 */
 
       *,
       *::before,
@@ -228,25 +228,6 @@
         line-height: 1.45;
       }
 
-      .content-state {
-        display: grid;
-        grid-template-columns: minmax(0, 1fr);
-        gap: var(--space-sm);
-        padding-block-start: var(--space-lg);
-        border-block-start: var(--rule-hair) solid var(--color-rule);
-      }
-
-      .content-state dt {
-        color: var(--color-muted);
-        font-size: var(--text-sm);
-      }
-
-      .content-state dd {
-        color: var(--color-ink);
-        font-size: var(--text-sm);
-        font-weight: 600;
-      }
-
       .section {
         padding-block: var(--space-3xl);
       }
@@ -404,7 +385,13 @@
         background: var(--color-accent);
       }
 
+      .slot-note {
+        max-width: 42ch;
+        color: var(--color-ink-2);
+      }
+
       .record-layout {
+        max-width: var(--measure);
         display: grid;
         gap: var(--space-2xl);
       }
@@ -433,43 +420,6 @@
 
       .spec-row dd {
         color: var(--color-ink);
-        font-variant-numeric: tabular-nums;
-      }
-
-      .queue {
-        align-self: start;
-        display: grid;
-        gap: var(--space-xl);
-        padding: var(--space-xl);
-        background: var(--color-paper-2);
-        border-radius: var(--radius-card);
-      }
-
-      .queue h3 {
-        max-width: 12ch;
-      }
-
-      .queue-list {
-        display: grid;
-        gap: var(--space-md);
-        margin: 0;
-        padding: 0;
-        counter-reset: queue;
-        list-style: none;
-      }
-
-      .queue-list li {
-        display: grid;
-        grid-template-columns: auto minmax(0, 1fr);
-        gap: var(--space-sm);
-        color: var(--color-ink-2);
-        font-size: var(--text-sm);
-      }
-
-      .queue-list li::before {
-        counter-increment: queue;
-        content: counter(queue, decimal-leading-zero);
-        color: var(--color-accent-soft);
         font-variant-numeric: tabular-nums;
       }
 
@@ -530,20 +480,11 @@
         color: var(--color-ink);
       }
 
-      .record-band .queue {
-        background: var(--color-paper-3);
-        color: var(--color-ink);
-      }
-
       @media (min-width: 40rem) {
         .intro {
           grid-template-columns: minmax(0, 1.25fr) minmax(0, 0.75fr);
           align-items: end;
           gap: var(--space-3xl);
-        }
-
-        .content-state {
-          grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
         }
 
         .project-grid {
@@ -553,11 +494,6 @@
         .project-slot:last-child {
           grid-column: 1 / -1;
           grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
-          align-items: start;
-        }
-
-        .record-layout {
-          grid-template-columns: minmax(0, 1.2fr) minmax(18rem, 0.8fr);
           align-items: start;
         }
 
@@ -649,38 +585,31 @@
         </div>
 
         <div class="intro-copy">
-          <p class="lede">Third-year biomedical engineering student, actively working in research. Project details, methods, and outcomes will be added as work is ready to publish.</p>
-          <dl class="content-state">
-            <dt>Portfolio state</dt>
-            <dd>Content in progress</dd>
-            <dt>Primary record</dt>
-            <dd>Research · engineering · practice</dd>
-          </dl>
+          <p class="lede">Third-year biomedical engineering student with hands-on research experience in particle circulation, tissue processing, microscopy preparation, and data analysis.</p>
         </div>
       </section>
 
       <section class="shell section" id="work" aria-labelledby="work-title">
         <header class="head-hang">
-          <h2 id="work-title">Research should show its evidence.</h2>
-          <p class="section-copy">Each entry will use one repeatable record: question, method, contribution, outcome. Empty fields stay visible until real content replaces them.</p>
+          <h2 id="work-title">Selected work</h2>
+          <p class="section-copy">Research and engineering projects by Luis Salvador Valdivia.</p>
         </header>
 
         <div class="project-grid">
           <a class="project-slot" href="work/research.html" aria-labelledby="research-card-title">
             <div class="slot-head">
-              <h3 id="research-card-title">Current research</h3>
-              <span class="slot-status">Open draft ↗</span>
+              <h3 id="research-card-title">Particle circulation research</h3>
+              <span class="slot-status">UROC ↗</span>
             </div>
-            <figure class="figure-placeholder">
-              <figcaption>Replace with lab image, instrument output, plot, or research figure.</figcaption>
+            <figure class="figure-placeholder has-image">
+              <img src="uroc-research-presentation.png" alt="Luis Salvador Valdivia presenting his particle circulation research poster" width="800" height="600" loading="lazy" decoding="async">
+              <figcaption>Summer research · Spencer Lab + Subramaniam Lab.</figcaption>
             </figure>
-            <ul class="content-fields" aria-label="Fields needed for current research">
-              <li>Lab + PI</li>
-              <li>Research question</li>
-              <li>Methods</li>
-              <li>Contribution</li>
-              <li>Outcome</li>
-              <li>Source link</li>
+            <ul class="content-fields" aria-label="Particle circulation research areas">
+              <li>Particle kinetics</li>
+              <li>Tissue processing</li>
+              <li>Cytosectioning</li>
+              <li>Data analysis</li>
             </ul>
           </a>
 
@@ -703,15 +632,10 @@
 
           <a class="project-slot" href="work/practice.html" aria-labelledby="practice-card-title">
             <div class="slot-head">
-              <h3 id="practice-card-title">Technical practice</h3>
-              <span class="slot-status">Open draft ↗</span>
+              <h3 id="practice-card-title">Additional technical work</h3>
+              <span class="slot-status">Forthcoming ↗</span>
             </div>
-            <ul class="content-fields" aria-label="Fields needed for technical practice">
-              <li>Course or context</li>
-              <li>Technical focus</li>
-              <li>Artifact</li>
-              <li>Takeaway</li>
-            </ul>
+            <p class="slot-note">No additional projects are published on this page.</p>
           </a>
         </div>
       </section>
@@ -719,8 +643,8 @@
       <section class="record-band" aria-labelledby="record-title">
         <div class="shell section">
           <header class="head-hang">
-            <h2 id="record-title">Academic record, without filler.</h2>
-            <p class="section-copy">Known facts stay concrete. Missing details remain queued instead of being invented.</p>
+            <h2 id="record-title">Education</h2>
+            <p class="section-copy">Biomedical Engineering at the University of California, Merced. Expected graduation: 2028.</p>
           </header>
 
           <div class="record-layout">
@@ -747,27 +671,18 @@
               </div>
             </dl>
 
-            <aside class="queue" aria-labelledby="queue-title">
-              <h3 id="queue-title">Next content pass</h3>
-              <ol class="queue-list">
-                <li>Research lab, PI, and question</li>
-                <li>Methods and personal contribution</li>
-                <li>Project visuals and validation</li>
-                <li>Résumé, email, and project sources</li>
-              </ol>
-            </aside>
           </div>
         </div>
       </section>
     </main>
 
     <footer class="shell foot-stmt">
-      <p class="foot-stmt__line">Work in progress. <span>Evidence first.</span></p>
+      <p class="foot-stmt__line">Biomedical Engineering <span>at UC Merced.</span></p>
       <div class="foot-stmt__meta">
         <span>Luis Salvador Valdivia</span>
         <span class="foot-stmt__contact">
           <a class="footer-link" href="https://www.linkedin.com/in/luissalvador12/" target="_blank" rel="noopener noreferrer">LinkedIn ↗</a>
-          <span>Email pending · Expected graduation 2028</span>
+          <span>Expected graduation 2028</span>
         </span>
       </div>
     </footer>
